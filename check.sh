@@ -46,6 +46,7 @@ do
   if [[ $commit == true ]]
   then
     echo $dateTime, $result >> "logs/${key}_report.log"
+    echo "$(tail -2000 logs/${key}_report.log)" > "logs/${key}_report.log"
   else
     echo "    $dateTime, $result"
   fi
@@ -56,6 +57,6 @@ then
   git config --global user.name $1
   git config --global user.email $2
   git add -A --force logs/
-  git commit -am 'Update Status'
+  git commit -am '[Automated] Update Status'
   git push
 fi
