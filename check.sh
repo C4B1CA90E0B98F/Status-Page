@@ -62,6 +62,7 @@ for (( index=0; index < ${#KEYSARRAY[@]}; index++ )); do
 done
 
 if [[ $commit == true ]]; then
+  echo "Committing changes to the repository"
   git config --global user.name "$1"
   git config --global user.email "$2"
   git add -A --force logs/
