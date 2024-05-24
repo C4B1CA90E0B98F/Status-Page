@@ -41,6 +41,7 @@ for (( index=0; index < ${#KEYSARRAY[@]}; index++ )); do
   for i in {1..4}; do
     echo "Checking $url (Attempt $i)"
     response=$(curl --write-out '%{http_code}' --silent --output /dev/null "$url")
+    echo "    Response: $response"
 
     if [[ "$response" -eq 200 || "$response" -eq 202 || "$response" -eq 301 || "$response" -eq 307 ]]; then
       result="success"
